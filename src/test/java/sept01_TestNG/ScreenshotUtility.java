@@ -1,0 +1,55 @@
+package sept01_TestNG;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+public class ScreenshotUtility {
+	
+	//create object of WebDriver interface
+	WebDriver driver;
+	//parameterize constructor
+	public ScreenshotUtility() 
+	{
+		this.driver = driver;
+	}
+	
+	
+	
+	public void screenshot() throws IOException 
+	{
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		String timestamp = new SimpleDateFormat("yyyyMMdd_HHssMM").format(new Date());
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File destination = new File("E:\\InfoEge Automation Project\\Sept26_V001\\Screenshot\\error"+timestamp+".png");
+		FileUtils.copyFile(source, destination);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
